@@ -6,12 +6,14 @@ const TodoTask = require('./models/TodoTask');
 const mongoose= require('mongoose');
 mongoose.set('useFindAndModify', false);
 
+const port= process.env.port || 3000;
+
 
 const app= express();
 
 mongoose.connect('mongodb+srv://alekya:helloyou@cluster0-gcuxr.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true},() =>{
     console.log('Connected to db');
-    app.listen(3000,()=>{
+    app.listen(port,()=>{
         console.log('Server listening on the port 3000');
     });
 });
